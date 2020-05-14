@@ -32,7 +32,9 @@ def train(x_train, y_train):
     model.add(Dense(128, activation=tf.nn.relu))
     model.add(Dropout(0.2))
     model.add(Dense(10, activation=tf.nn.softmax))
+    print("Model initialized!")
     compile_model(model)
+    print("Model compiled!")
     model.fit(x=x_train, y=y_train, epochs=1)
     return model
 
@@ -47,11 +49,12 @@ def save_to(model, dir: str):
 
 def main(argv: List[str]):
     (x_train, y_train), _ = tf.keras.datasets.mnist.load_data()
-    model = train(x_train, y_train)
+    print(sys.getsizeof(x_train))
+    # model = train(x_train, y_train)
     if len(argv) == 1:
         dir_to_save = argv[0]
         print(f"Save model to {dir_to_save}")
-        save_to(model, dir_to_save)
+        # save_to(model, dir_to_save)
 
 
 if __name__ == '__main__':
