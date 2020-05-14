@@ -22,6 +22,7 @@ def train(x_train, y_train):
     print('x_train shape:', x_train.shape)
     print('Number of images in x_train', x_train.shape[0])
     # Importing the required Keras modules containing model and layers
+    print("Before importing keras")
     from tensorflow.keras.models import Sequential
     from tensorflow.keras.layers import Dense, Conv2D, Dropout, Flatten, MaxPooling2D
     # Creating a Sequential Model and adding the layers
@@ -50,11 +51,11 @@ def save_to(model, dir: str):
 def main(argv: List[str]):
     (x_train, y_train), _ = tf.keras.datasets.mnist.load_data()
     print(sys.getsizeof(x_train))
-    # model = train(x_train, y_train)
+    model = train(x_train, y_train)
     if len(argv) == 1:
         dir_to_save = argv[0]
         print(f"Save model to {dir_to_save}")
-        # save_to(model, dir_to_save)
+        save_to(model, dir_to_save)
 
 
 if __name__ == '__main__':
