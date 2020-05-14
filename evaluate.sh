@@ -1,1 +1,0 @@
-python src/evaluate.py /mnt/space/share/model

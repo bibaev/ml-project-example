@@ -1,1 +1,0 @@
-python src/train.py /mnt/space/share/model

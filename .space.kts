@@ -1,11 +1,11 @@
 job("Train model") {
     container("tensorflow/tensorflow:2.2.0") {
-        entrypoint("/bin/bash")
-        args("train.sh")
+        entrypoint("python")
+        args("/mnt/space/work/src/train.py", "/mnt/space/share/model")
     }
 
     container("tensorflow/tensorflow:2.2.0") {
-        entrypoint("/bin/bash")
-        args("evaluate.sh")
+        entrypoint("python")
+        args("/mnt/space/work/src/evaluate.py", "/mnt/space/share/model")
     }
 }
