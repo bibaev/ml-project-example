@@ -15,7 +15,7 @@ job("Train and publish model") {
         }
     }
 
-    container("docker:dind") {
+    container("docker") {
         entrypoint("/bin/sh")
         args("deploy.sh")
     }
