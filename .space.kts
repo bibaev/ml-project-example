@@ -15,8 +15,8 @@ job("Train and publish model") {
         }
     }
 
-    container("ubuntu") {
-        entrypoint("/bin/bash")
+    container("docker:dind") {
+        entrypoint("/bin/sh")
         args("deploy.sh")
     }
 }
