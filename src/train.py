@@ -4,11 +4,7 @@ from typing import List
 
 import tensorflow as tf
 
-
-def compile_model(model):
-    model.compile(optimizer='adam',
-                  loss='sparse_categorical_crossentropy',
-                  metrics=['accuracy'])
+from common import compile_model
 
 
 def train(x_train, y_train):

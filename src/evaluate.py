@@ -1,11 +1,9 @@
-import os
 import sys
 from typing import List
 
 import tensorflow as tf
-from tensorflow.python.keras.models import model_from_json
 
-from train import compile_model
+from common import load_model
 
 
 def evaluate(model, x_test, y_test) -> float:
@@ -16,13 +14,6 @@ def evaluate(model, x_test, y_test) -> float:
     score = model.evaluate(x_test, y_test)
     return score[1]
 
-
-def load_model(dir: str):
-    with open(os.path.join(dir, 'model.json'), 'r') as model_json:
-        loaded_model = model_from_json(model_json.read())
-    loaded_model.load_weights(os.path.join(dir, "weights.h5"))
-    compile_model(loaded_model)
-    return loaded_model
 
 
 def main(argv: List[str]):
