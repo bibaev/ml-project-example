@@ -1,4 +1,4 @@
-job("Train model") {
+job("Train and publish model") {
     container("tensorflow/tensorflow:2.2.0") {
         entrypoint("python")
         args("/mnt/space/work/src/train.py", "/mnt/space/share/model")
@@ -13,5 +13,10 @@ job("Train model") {
         resources {
             memory = 8000
         }
+    }
+
+    container("ubuntu") {
+        entrypoint("/bin/bash")
+        args("deploy.sh")
     }
 }
