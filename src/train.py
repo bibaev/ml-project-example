@@ -32,7 +32,7 @@ def train(x_train, y_train):
     print("Model initialized!")
     compile_model(model)
     print("Model compiled!")
-    model.fit(x=x_train, y=y_train, epochs=5)
+    model.fit(x=x_train, y=y_train, epochs=1)
     return model
 
 
