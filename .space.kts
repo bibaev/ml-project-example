@@ -15,7 +15,7 @@ job("Train and publish model") {
         }
     }
 
-    container("ubuntu") {
+    container("docker:stable") {
         entrypoint("/bin/bash")
         args("deploy.sh")
     }
